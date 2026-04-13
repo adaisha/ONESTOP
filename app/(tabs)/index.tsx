@@ -1,15 +1,15 @@
+import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import {
-  Alert,
   SafeAreaView,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native';
-
 export default function Index() {
+  const router = useRouter();
   const [selectedRole, setSelectedRole] = useState<'CP' | 'NCP' | ''>('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -76,13 +76,11 @@ export default function Index() {
         />
 
         <TouchableOpacity
-          style={styles.primaryButton}
-          onPress={() =>
-            Alert.alert('Sign In', `Signed in as ${selectedRole || 'No role selected'}`)
-          }
-        >
-          <Text style={styles.primaryButtonText}>Sign In</Text>
-        </TouchableOpacity>
+  style={styles.primaryButton}
+  onPress={() => router.push('/child')}
+>
+  <Text style={styles.primaryButtonText}>Sign In</Text>
+</TouchableOpacity>
 
         <TouchableOpacity style={styles.secondaryButton}>
           <Text style={styles.secondaryButtonText}>Create Account</Text>
