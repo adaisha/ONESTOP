@@ -1,7 +1,16 @@
+import { useRouter } from 'expo-router';
 import { useState } from 'react';
-import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import {
+    SafeAreaView,
+    StyleSheet,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View,
+} from 'react-native';
 
 export default function Child() {
+  const router = useRouter();
   const [child1, setChild1] = useState('');
   const [child2, setChild2] = useState('');
 
@@ -21,7 +30,7 @@ export default function Child() {
               value={child1}
               onChangeText={setChild1}
               placeholder="Child 1 - P."
-              placeholderTextColor="#8A8A8A"
+              placeholderTextColor="gray"
               style={styles.input}
             />
           </View>
@@ -37,13 +46,16 @@ export default function Child() {
               value={child2}
               onChangeText={setChild2}
               placeholder="Child 2 - P."
-              placeholderTextColor="#8A8A8A"
+              placeholderTextColor="gray"
               style={styles.input}
             />
           </View>
         </View>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => router.push('/parenting-time')}
+        >
           <Text style={styles.buttonText}>Continue</Text>
         </TouchableOpacity>
       </View>
@@ -56,10 +68,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 20,
-    backgroundColor: '#E8F3EC',
+    backgroundColor: 'rgb(232, 243, 236)',
   },
   card: {
-    backgroundColor: '#FFFDF8',
+    backgroundColor: 'rgb(255, 253, 248)',
     padding: 22,
     borderRadius: 22,
     elevation: 3,
@@ -68,13 +80,13 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: '700',
     textAlign: 'center',
-    color: '#2F4F4F',
+    color: 'rgb(47, 79, 79)',
     marginBottom: 6,
   },
   subtitle: {
     fontSize: 14,
     textAlign: 'center',
-    color: '#6B7280',
+    color: 'rgb(107, 114, 128)',
     marginBottom: 24,
   },
   inputGroup: {
@@ -86,17 +98,17 @@ const styles = StyleSheet.create({
     width: 42,
     height: 42,
     borderRadius: 21,
-    backgroundColor: '#D8E7D0',
+    backgroundColor: 'rgb(216, 231, 208)',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
     borderWidth: 1,
-    borderColor: '#C9D9C0',
+    borderColor: 'black',
   },
   iconText: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#5C6F68',
+    color: 'rgb(92, 111, 104)',
   },
   inputWrap: {
     flex: 1,
@@ -104,25 +116,25 @@ const styles = StyleSheet.create({
   label: {
     marginBottom: 6,
     fontWeight: '600',
-    color: '#5B5B5B',
+    color: 'rgb(91, 91, 91)',
   },
   input: {
     borderWidth: 1,
-    borderColor: '#CFE0F5',
-    backgroundColor: '#F9FBFD',
+    borderColor: 'rgb(207, 224, 245)',
+    backgroundColor: 'rgb(249, 251, 253)',
     borderRadius: 12,
     padding: 13,
-    color: '#1F2937',
+    color: 'rgb(31, 41, 55)',
   },
   button: {
     marginTop: 10,
-    backgroundColor: '#7FA7C9',
+    backgroundColor: 'rgb(127, 167, 201)',
     paddingVertical: 15,
     borderRadius: 12,
     alignItems: 'center',
   },
   buttonText: {
-    color: '#FFFFFF',
+    color: 'white',
     fontWeight: '700',
     fontSize: 16,
   },
